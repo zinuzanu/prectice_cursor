@@ -37,13 +37,13 @@
             <div class="ide-sidebar-section">
                 <div class="ide-sidebar-title">EXPLORER</div>
                 <a class="ide-nav-item"
-                   th:classappend="${#request != null and #request.requestURI != null and #request.requestURI.startsWith('/posts')} ? ' active' : ''"
+                   th:classappend="${currentPath != null and currentPath.startsWith('/posts')} ? ' active' : ''"
                    th:href="@{/posts}">
                     <i class="bi bi-list-task"></i>
                     posts
                 </a>
                 <a class="ide-nav-item"
-                   th:classappend="${#request != null and #request.requestURI == '/posts/new'} ? ' active' : ''"
+                   th:classappend="${currentPath == '/posts/new'} ? ' active' : ''"
                    th:href="@{/posts/new}">
                     <i class="bi bi-file-earmark-plus"></i>
                     new

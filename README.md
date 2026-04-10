@@ -205,3 +205,36 @@ src
 - **운영 설정 강화**: `application-prod.properties`, 로깅/에러 페이지/헬스체크(Actuator)
 - **배포/로컬 편의**: Dockerfile + docker-compose(DB 포함), GitHub Actions CI(테스트/빌드)
 
+---
+
+## Roadmap (토글 체크리스트)
+
+### Backend
+
+- [x] CRUD (Thymeleaf)
+- [x] H2 Console
+- [ ] 목록 정렬/페이징 UI 고도화 (`sort`, `asc/desc` 선택 UI)
+- [ ] 페이지네이션 UX 개선 (많은 페이지에서 `...` 윈도우)
+- [ ] API 문서화 (Springdoc OpenAPI/Swagger UI)
+- [ ] DB 마이그레이션 도입 (Flyway/Liquibase)
+- [ ] Spring Security 적용 (로그인/권한/CSRF 정책 정리)
+
+### Frontend (다음 목표)
+
+- [ ] 공통 레이아웃/컴포넌트 정리(템플릿 중복 제거)
+- [ ] 디자인 업그레이드 (타이포/간격/카드/버튼/폼)
+- [ ] 목록 UI 개선 (정렬 드롭다운, 검색 결과 강조, 빈 상태/로딩 상태)
+- [ ] 상세/작성/수정 UX 개선 (textarea 자동 확장, 글자수 카운터 등)
+
+---
+
+## Changelog (구현 시점 기록)
+
+README는 기능을 “설명서”로 유지하되, 변경 이력은 최소한으로만 적어두는 것을 권장합니다.
+PR 링크로 추적하고 싶다면 아래 형식을 쓰면 깔끔합니다.
+
+- **YYYY-MM-DD**: CRUD 초기 버전 구현  
+  - PR: `#(링크/번호)` / Commit: `1337ef3`
+- **YYYY-MM-DD**: 개선 작업(페이징/검색/검증 UX/REST API/테스트/프로필 분리)  
+  - PR: `#(링크/번호)` / Branch: `feat/...` / Commit: `(merge commit)`
+

@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,11 +19,13 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "{post.title.notBlank}")
+    @Size(max = 200, message = "{post.title.size}")
     @Column(nullable = false, length = 200)
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "{post.content.notBlank}")
+    @Size(max = 10000, message = "{post.content.size}")
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 

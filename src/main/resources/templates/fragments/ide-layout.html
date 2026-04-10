@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head(title)">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="page(title, content)">
+<head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title th:text="${title}">Board IDE</title>
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
     <link rel="stylesheet" th:href="@{/css/ide.css}"/>
 </head>
-<body th:fragment="page(title, content)">
+<body>
 <div class="ide-root" data-theme="dark">
     <header class="ide-topbar">
         <div class="ide-topbar-left">
@@ -37,13 +38,13 @@
             <div class="ide-sidebar-section">
                 <div class="ide-sidebar-title">EXPLORER</div>
                 <a class="ide-nav-item"
-                   th:classappend="${#httpServletRequest.requestURI.startsWith('/posts')} ? ' active' : ''"
+                   th:classappend="${currentPath != null and currentPath.startsWith('/posts')} ? ' active' : ''"
                    th:href="@{/posts}">
                     <i class="bi bi-list-task"></i>
                     posts
                 </a>
                 <a class="ide-nav-item"
-                   th:classappend="${#httpServletRequest.requestURI == '/posts/new'} ? ' active' : ''"
+                   th:classappend="${currentPath == '/posts/new'} ? ' active' : ''"
                    th:href="@{/posts/new}">
                     <i class="bi bi-file-earmark-plus"></i>
                     new

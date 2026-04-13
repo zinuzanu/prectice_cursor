@@ -22,8 +22,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

@@ -1,16 +1,25 @@
 # CodeRabbit 리뷰 관련 설정
 reviews:
-  auto_review: true  # PR 생성 시 자동으로 AI 리뷰를 수행할지 여부 (true = 자동 리뷰)
+  auto_review:
+    enabled: true
+    # PR 생성 또는 업데이트 시 자동으로 AI 리뷰를 수행할지 여부
+    # true = 자동 리뷰 실행
 
   path_filters:
-    - "!node_modules/**"  # node_modules 폴더는 리뷰 대상에서 제외 (외부 라이브러리라 불필요)
-    - "!build/**"         # 빌드 결과물도 제외 (컴파일된 코드라 리뷰 의미 없음)
+    - "!node_modules/**"
+    # node_modules 폴더 제외 (외부 라이브러리라 리뷰 불필요)
+
+    - "!build/**"
+    # 빌드 결과물 제외 (컴파일된 산출물이라 리뷰 의미 없음)
 
   request_changes_workflow: false
-  # CodeRabbit이 "Changes requested" 상태로 PR을 막을지 여부
-  # false = 참고용 리뷰만 제공 (merge 차단 없음)
-  # true  = 문제가 있으면 PR merge를 막을 수도 있음 (엄격한 팀에 사용)
+  # CodeRabbit이 PR을 "Changes requested" 상태로 막을지 여부
+  # false = 참고용 리뷰만 제공 (merge 차단 없음, 추천 기본값)
+  # true  = 문제가 있으면 merge 차단 (엄격한 팀에서 사용)
 
 # 댓글 스타일 관련 설정
 comments:
-  tone: concise  # 리뷰 코멘트를 간결하게 작성 (불필요한 장황함 제거)
+  tone: concise
+  # 리뷰 코멘트를 간결하게 작성
+  # concise = 핵심만 짧게 (추천)
+  # verbose = 자세하게 설명 (초기 학습용)
